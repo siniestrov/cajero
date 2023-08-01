@@ -1,0 +1,16 @@
+
+.back-principal{
+    background-color: white;
+}
+
+.size-card{
+    width: 30rem;
+    height: 34rem;
+}
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
