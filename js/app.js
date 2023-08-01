@@ -5,6 +5,9 @@ const alertLogin = document.querySelector('#alert-login');
 const alertGeneral = document.querySelector('#alert-general');
 var limite = 990;
 var minimo = 10;
+
+
+
 document.getElementById('card-atm').style.display = 'none';
 
 loginform.addEventListener('submit', function (event) {
@@ -40,15 +43,20 @@ loginform.addEventListener('submit', function (event) {
 
                 if (document.getElementsByName("deposito")[0].value.length == "") {
                     alertGeneral.textContent = 'Llena el campo para ingresar saldo.';
-
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-danger';
+                  
                 } else if((saldoActual + deposito) >= limite ) {
                     alertGeneral.textContent = 'No se puede sobrepasar el saldo de $ ' + limite + '.';
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-danger';
                 }
                 else {
 
                     saldoActual = parseInt(saldoActual) + deposito;
                     saldoTotal.textContent = '$ '+ saldoActual;
                     alertGeneral.textContent = 'Has ingresado a tu saldo: ' + deposito;
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-success';
+                   
+  
                 }
 
             }
@@ -65,17 +73,21 @@ loginform.addEventListener('submit', function (event) {
                 var retiro = parseInt(document.getElementsByName("retirar")[0].value);
                 if (document.getElementsByName("retirar")[0].value.length == "") {
                     alertGeneral.textContent = 'Llena el campo para retirar saldo.';
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-danger';
                 }
                 else if ((saldoActual - retiro) <= minimo) {
                     alertGeneral.textContent = 'Debes tener un minimo de $ ' + minimo + ' en tu cuenta.';
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-danger';
                 }
                 else if (retiro >= parseInt(saldoActual)) {
                     alertGeneral.textContent = 'Su fondo disposible no es suficiente.';
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-danger';
                 }
                 else {
                     saldoActual = parseInt(saldoActual) - retiro;
                     saldoTotal.textContent = '$ ' + saldoActual;
                     alertGeneral.textContent = 'Has retirado de tu saldo: ' + retiro;
+                    document.querySelector('#alert-general').className = 'card-subtitle mb-3 fw-bold text-success';
 
                 }
             }
