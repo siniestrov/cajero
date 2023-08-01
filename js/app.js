@@ -5,7 +5,8 @@ const alertLogin = document.querySelector('#alert-login');
 const alertGeneral = document.querySelector('#alert-general');
 var limite = 990;
 var minimo = 10;
-document.getElementById('card-atm').style.display = 'hidden';
+document.getElementById('card-atm').style.display = 'none';
+
 loginform.addEventListener('submit', function (event) {
     event.preventDefault();
     const user = event.target.userLogin.value;
@@ -22,9 +23,9 @@ loginform.addEventListener('submit', function (event) {
 
             var saldoTurno = document.getElementById('saldo');
             saldoTurno.textContent = cliente.saldoUser;
-
-            document.getElementById('card-login').style.display = 'none';
             
+            document.getElementById('card-login').style.display = 'none';
+            document.getElementById('card-atm').style.display = 'block';
 
             const saldoTotal = document.querySelector('#saldo');
             const btnIngreso = document.querySelector('#btn-suma');
@@ -32,7 +33,7 @@ loginform.addEventListener('submit', function (event) {
             var saldoActual = cliente.saldoUser;
             saldoTotal.textContent = '$ ' + saldoActual;
 
-            document.getElementById('card-atm').style.display = 'visible';
+            
               
             function depositarDinero() {
                 var deposito = parseInt(document.getElementsByName("deposito")[0].value);
